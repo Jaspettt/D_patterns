@@ -4,9 +4,9 @@ public class PayProcess {
     private PayProcess(IPaymentStrategy Strategy) {
         this.Strategy = Strategy;
     }
-    public static PayProcess getInstance() {
+    public static PayProcess getInstance(IPaymentStrategy Strategy) {
         if (instance == null) {
-            instance = new PayProcess(new PayWithCash());
+            instance = new PayProcess(Strategy);
         }
         return instance;
     }
